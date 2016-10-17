@@ -28,10 +28,10 @@ my $zfscmd = '/sbin/zfs';
 my $sshcmd = '/usr/bin/ssh';
 my $pscmd = '/bin/ps';
 my $sshcipher = '-c chacha20-poly1305@openssh.com,arcfour';
-my $sshport = '-p 1776';
-my $pvcmd = '/usr/local/bin/pv';
-my $mbuffercmd = '/usr/local/bin/mbuffer';
-my $sudocmd = '/usr/local/bin/sudo';
+my $sshport = '-p 22';
+my $pvcmd = '/usr/bin/pv';
+my $mbuffercmd = '/usr/bin/mbuffer';
+my $sudocmd = '/usr/bin/sudo';
 my $mbufferoptions = '-q -s 128k -m 16M 2>/dev/null';
 # currently using ls to check for file existence because we aren't depending on perl
 # being present on remote machines.
@@ -343,9 +343,9 @@ sub getargs {
 		$args{'rawdecompresscmd'} = '/bin/zcat';
 		$args{'decompressargs'} = '';
 	} elsif ( ($args{'compress'} eq 'lzo') || ($args{'compress'} eq 'default') ) {
-		$args{'rawcompresscmd'} = '/usr/local/bin/lzop';
+		$args{'rawcompresscmd'} = '/usr/bin/lzop';
 		$args{'compressargs'} = '';
-		$args{'rawdecompresscmd'} = '/usr/local/bin/lzop';
+		$args{'rawdecompresscmd'} = '/usr/bin/lzop';
 		$args{'decompressargs'} = '-dfc';
 	} else {
 		$args{'rawcompresscmd'} = '';
