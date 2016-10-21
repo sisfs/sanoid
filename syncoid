@@ -25,14 +25,15 @@ my $debug = $args{'debug'};
 my $quiet = $args{'quiet'};
 
 my $zfscmd = '/sbin/zfs';
-my $sshcmd = '/usr/bin/ssh';
+my $sshcmd = '/usr/bin/ssh -i ~/.ssh/id_rsa';
 my $pscmd = '/bin/ps';
 my $sshcipher = '-c chacha20-poly1305@openssh.com,arcfour';
-my $sshport = '-p 1776';
+my $sshport = '-p 22';
 my $pvcmd = '/usr/local/bin/pv';
 my $mbuffercmd = '/usr/local/bin/mbuffer';
 my $sudocmd = '/usr/local/bin/sudo';
-my $mbufferoptions = '-q -s 128k -m 16M 2>/dev/null';
+my $mbufferoptions = '-q -s 128k -m 16M';
+## my $mbufferoptions = '-q -s 128k -m 16M 2>/dev/null';
 # currently using ls to check for file existence because we aren't depending on perl
 # being present on remote machines.
 my $lscmd = '/bin/ls';
