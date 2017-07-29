@@ -422,9 +422,9 @@ sub getargs {
 		$args{'rawdecompresscmd'} = '/usr/bin/pigz';
 		$args{'decompressargs'} = '-dc';
 	} elsif ( ($args{'compress'} eq 'lzo') || ($args{'compress'} eq 'default') ) {
-		$args{'rawcompresscmd'} = '/usr/bin/lzop';
+		$args{'rawcompresscmd'} = '/usr/local/bin/lzop';
 		$args{'compressargs'} = '';
-		$args{'rawdecompresscmd'} = '/usr/bin/lzop';
+		$args{'rawdecompresscmd'} = '/usr/local/bin/lzop';
 		$args{'decompressargs'} = '-dfc';
 	} else {
 		$args{'rawcompresscmd'} = '';
